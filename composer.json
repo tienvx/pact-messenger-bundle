@@ -1,0 +1,36 @@
+{
+    "name": "tienvx/pact-messenger-bundle",
+    "description": "Pact Messenger Bundle",
+    "type": "symfony-bundle",
+    "require": {
+        "php": "^8.0",
+        "symfony/http-kernel": "^4.4|^5.4|^6.0",
+        "symfony/dependency-injection": "^4.4|^5.4|^6.0",
+        "symfony/config": "^4.4|^5.4|^6.0",
+        "symfony/messenger": "^4.4|^5.4|^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tienvx\\Bundle\\PactMessengerBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tienvx\\Bundle\\PactMessengerBundle\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tien Vo Xuan",
+            "email": "tien.xuan.vo@gmail.com",
+            "homepage": "https://tienvx.github.io/"
+        }
+    ],
+    "conflict": {
+        "symfony/symfony": "*"
+    }
+}
