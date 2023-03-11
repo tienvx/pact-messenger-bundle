@@ -30,9 +30,8 @@ class TienvxPactMessengerExtensionTest extends TestCase
             ],
             SendMessageToTransportsEventListener::class => [
                 'tag' => 'kernel.event_listener',
-                'args' => fn (array $args) => $args === [
-                    EnvelopeCollectorInterface::class,
-                ],
+                'args' => fn (array $args) => 1 === count($args) &&
+                    EnvelopeCollectorInterface::class == $args[0],
             ],
         ];
         foreach ($services as $key => $value) {
