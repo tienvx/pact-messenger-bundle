@@ -13,6 +13,9 @@ class SendMessageToTransportsEventListener
 
     public function __invoke(SendMessageToTransportsEvent $event): void
     {
-        $this->collector->collect($event->getEnvelope());
+        $this->collector->collect(
+            $event->getEnvelope(),
+            method_exists($event, 'getSenders') ? array_keys($event->getSenders()) : null
+        );
     }
 }
