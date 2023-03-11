@@ -7,13 +7,15 @@ use Tienvx\Bundle\PactMessengerBundle\Service\EnvelopeCollector;
 use Tienvx\Bundle\PactMessengerBundle\Service\EnvelopeCollectorInterface;
 
 return static function (ContainerConfigurator $container): void {
+    $namespace = __NAMESPACE__;
+    $service = function_exists("$namespace\\service") ? "$namespace\\service" : "$namespace\\ref";
     $container->services()
         ->set(EnvelopeCollector::class)
             ->alias(EnvelopeCollectorInterface::class, EnvelopeCollector::class)
 
         ->set(SendMessageToTransportsEventListener::class)
             ->args([
-                EnvelopeCollectorInterface::class,
+                $service(EnvelopeCollectorInterface::class),
             ])
             ->tag('kernel.event_listener')
     ;
