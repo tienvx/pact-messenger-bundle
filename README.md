@@ -14,6 +14,7 @@ composer require tienvx/pact-messenger-bundle
 
 namespace App\MessageDispatcher;
 
+use Symfony\Component\Messenger\Stamp\TransportNamesStamp;
 use Tienvx\Bundle\PactMessengerBundle\Service\EnvelopeCollectorInterface;
 use Tienvx\Bundle\PactProviderBundle\Attribute\AsMessageDispatcher;
 use Tienvx\Bundle\PactProviderBundle\Model\Message;
@@ -34,6 +35,8 @@ class UserDispatcher implements DispatcherInterface
 
             return new Message(serialize($envelope->getMessage()), 'text/plain', json_encode(['transports' => $transports]));
         }
+
+        return null;
     }
 }
 ```
