@@ -7,32 +7,32 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1', '8.2']
-        dependency-versions: ['lowest', 'highest']
-    name: PHP ${{ matrix.php-versions }} with ${{ matrix.dependency-versions }} versions of Composer dependencies
+        php: ['8.1', '8.2', '8.3']
+        dependencies: ['lowest', 'highest']
     steps:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-versions }}
-        tools: phpstan, php-cs-fixer:3
+        php-version: ${{ matrix.php }}
         coverage: pcov
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install
-      uses: "ramsey/composer-install@v2"
+      uses: ramsey/composer-install@v3
       with:
-        dependency-versions: ${{ matrix.dependency-versions }}
+        dependency-versions: ${{ matrix.dependencies }}
 
     - name: Run PHP CS Fixer
-      run: php-cs-fixer fix --diff --dry-run
-      env:
-        PHP_CS_FIXER_IGNORE_ENV: 1
+      uses: docker://oskarstark/php-cs-fixer-ga
+      with:
+        args: --diff --dry-run
 
     - name: Run PHPStan
-      run: phpstan analyse src tests
+      uses: docker://oskarstark/phpstan-ga
+      env:
+        REQUIRE_DEV: true
 
     - name: Test & Generate Code Coverage
       run: ./vendor/bin/phpunit
@@ -43,4 +43,4 @@ jobs:
       run: |
         composer global require php-coveralls/php-coveralls
         php-coveralls --coverage_clover=clover.xml -v
-      if: matrix.php-versions == '8.0'
+      if: ${{ github.event_name == 'push' && matrix.php == '8.1' && matrix.dependencies == 'highest' }}
