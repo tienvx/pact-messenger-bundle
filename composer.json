@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tienvx\\Bundle\\PactMessengerBundle\\Tests\\Integration\\TestApplication\\": "tests/Integration/TestApplication/src/",
+            "Tienvx\\Bundle\\PactMessengerBundle\\Tests\\TestApplication\\": "tests/TestApplication/src/",
             "Tienvx\\Bundle\\PactMessengerBundle\\Tests\\": "tests/"
         }
     },

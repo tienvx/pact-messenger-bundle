@@ -9,6 +9,9 @@ return static function (ContainerConfigurator $container) {
             ->autoconfigure()
     ;
 
-    $services->load('Tienvx\\Bundle\\PactMessengerBundle\\Tests\\Integration\\TestApplication\\', '../src/*')
+    $services->load('Tienvx\\Bundle\\PactMessengerBundle\\Tests\\TestApplication\\', '../src/*')
         ->exclude('../{Entity,Tests,Kernel.php}');
+
+    $services->load('Tienvx\\Bundle\\PactMessengerBundle\\Tests\\TestApplication\\Controller\\', '../src/Controller/')
+        ->tag('controller.service_arguments');
 };
