@@ -1,6 +1,6 @@
 <?php
 
-namespace Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message;
+namespace Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message;
 
 class UserUpdated
 {

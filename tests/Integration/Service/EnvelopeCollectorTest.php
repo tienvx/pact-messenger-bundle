@@ -1,14 +1,14 @@
 <?php
 
-namespace Tienvx\Bundle\MbtBundle\Tests\Integration\Service;
+namespace Tienvx\Bundle\PactMessengerBundle\Tests\Integration\Service;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Tienvx\Bundle\PactMessengerBundle\Service\EnvelopeCollectorInterface;
-use Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserCreated;
-use Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserDeleted;
-use Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserUpdated;
+use Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserCreated;
+use Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserDeleted;
+use Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserUpdated;
 
 class EnvelopeCollectorTest extends KernelTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Kernel;
+use Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Kernel;
 
 $configuration = [
     'http_method_override' => false,
@@ -15,9 +15,9 @@ $configuration = [
             'audit' => 'in-memory://',
         ],
         'routing' => [
-            'Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserCreated' => 'async',
-            'Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserUpdated' => 'async',
-            'Tienvx\Bundle\PactMessengerBundle\Tests\Integration\TestApplication\Message\UserDeleted' => ['async', 'audit'],
+            'Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserCreated' => 'async',
+            'Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserUpdated' => 'async',
+            'Tienvx\Bundle\PactMessengerBundle\Tests\TestApplication\Message\UserDeleted' => ['async', 'audit'],
         ],
     ],
 ];
