@@ -37,9 +37,9 @@ class UserControllerTest extends WebTestCase
         $collector = $container->get(EnvelopeCollectorInterface::class);
         $this->assertCount(1, $all = $collector->getAll());
 
-        $this->assertInstanceOf(Envelope::class, $created = $collector->getSingle(UserUpdated::class));
-        $this->assertTrue(in_array($created, $all));
-        $this->assertInstanceOf(UserUpdated::class, $message = $created->getMessage());
+        $this->assertInstanceOf(Envelope::class, $updated = $collector->getSingle(UserUpdated::class));
+        $this->assertTrue(in_array($updated, $all));
+        $this->assertInstanceOf(UserUpdated::class, $message = $updated->getMessage());
         $this->assertSame(123, $message->userId);
     }
 
@@ -53,9 +53,9 @@ class UserControllerTest extends WebTestCase
         $collector = $container->get(EnvelopeCollectorInterface::class);
         $this->assertCount(1, $all = $collector->getAll());
 
-        $this->assertInstanceOf(Envelope::class, $created = $collector->getSingle(UserDeleted::class));
-        $this->assertTrue(in_array($created, $all));
-        $this->assertInstanceOf(UserDeleted::class, $message = $created->getMessage());
+        $this->assertInstanceOf(Envelope::class, $deleted = $collector->getSingle(UserDeleted::class));
+        $this->assertTrue(in_array($deleted, $all));
+        $this->assertInstanceOf(UserDeleted::class, $message = $deleted->getMessage());
         $this->assertSame(123, $message->userId);
     }
 }
