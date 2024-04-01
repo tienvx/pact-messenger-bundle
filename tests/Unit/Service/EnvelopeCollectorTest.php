@@ -1,6 +1,6 @@
 <?php
 
-namespace Tienvx\Bundle\PactProviderBundle\Tests\Unit\Service;
+namespace Tienvx\Bundle\PactMessengerBundle\Tests\Unit\Service;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Messenger\Envelope;

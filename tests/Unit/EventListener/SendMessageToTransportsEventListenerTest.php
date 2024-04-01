@@ -1,6 +1,6 @@
 <?php
 
-namespace Tienvx\Bundle\PactProviderBundle\Tests\Unit\EventListener;
+namespace Tienvx\Bundle\PactMessengerBundle\Tests\Unit\EventListener;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
